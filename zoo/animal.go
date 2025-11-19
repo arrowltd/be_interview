@@ -8,5 +8,5 @@ type Animal interface {
 	Age() int
 	FirstDateAtZoo() time.Time
 	GiveOrder(order string)
-	ProcessHealthCheck()
+	ProcessHealthCheck(history *MedicalHistoryObject)
 }

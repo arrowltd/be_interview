@@ -34,7 +34,7 @@ func (c *Cat) GiveOrder(order string) {
 	fmt.Printf("%s received order: %s\n", c.name, order)
 }
 
-func (c *Cat) ProcessHealthCheck() {
+func (c *Cat) ProcessHealthCheck(history *MedicalHistoryObject) {
 	fmt.Printf("--- Starting health check for Cat: %s ---\n", c.name)
 	c.GiveOrder("mew")
 	c.GiveOrder("claw")

@@ -24,9 +24,11 @@ func main() {
 		NewLion("Simba", 4, time.Now()),
 		NewMonkey("George", 5, time.Now()),
 		NewTiger("Rajah", 9, time.Now()),
+		NewEthereal("Casper", 200, time.Now()),
 	}
 
 	for _, animal := range animals {
-		animal.ProcessHealthCheck()
+		medicalHistory := fetchMedicalHistory(animal)
+		animal.ProcessHealthCheck(medicalHistory)
 	}
 }
