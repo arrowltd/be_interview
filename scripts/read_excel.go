@@ -40,7 +40,6 @@ const (
 	kConfigFilename         = "game_config.xlsx"
 )
 
-// LoadGameConfig is the entry point. It reads a file and contains the duplicated logic.
 func LoadGameConfig(filePath string, info *Info) (*Game, error) {
 	xlsxFile, err := xlsx.OpenFile(filePath)
 	if err != nil {
@@ -49,7 +48,7 @@ func LoadGameConfig(filePath string, info *Info) (*Game, error) {
 
 	game := &Game{}
 	var parsingErr error
-	// === Block 1: Parse Premium Symbols ===
+	// === Parse Premium Symbols ===
 	sheetPremium := xlsxFile.Sheet[kSymbolPremiumSheetName]
 	symbolListPremium := []*Symbol{}
 	if sheetPremium != nil {
@@ -100,7 +99,7 @@ func LoadGameConfig(filePath string, info *Info) (*Game, error) {
 		game.premiumSymbolList = symbolListPremium
 	}
 
-	// === Block 2: Parse F2P Symbols ===
+	// === Parse F2P Symbols ===
 	sheetF2P := xlsxFile.Sheet[kSymbolF2PSheetName]
 	symbolListF2P := []*Symbol{}
 	if sheetF2P != nil {
